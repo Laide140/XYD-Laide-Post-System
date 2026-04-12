@@ -21,6 +21,7 @@ if (isset($_COOKIE["username"])) {
         $postadmin = $user_data['postadmin'];
         $enableQPT = $user_data['enableQPT'];
         $enableOS = $user_data['enableOS'];
+        $password = $user_data['password'];
         $userimg = $user_data['headimg'] ?? './unkown.webp';
     } else {
         $userct = $userut = $userrole = $userpost = $postadmin = $enableQPT = $enableOS = "";
@@ -571,7 +572,7 @@ function setupPhoneSuggest(inputId, nameFieldId, addressFieldId, postcodeFieldId
   }
 
   function tracking() {
-    var mail = $('#trackmail').val();
+    var mail = $('#mail').val();
     if (!mail) {
       layui.use('layer', function(){
         var layer = layui.layer;
@@ -583,7 +584,7 @@ function setupPhoneSuggest(inputId, nameFieldId, addressFieldId, postcodeFieldId
     $.ajax({
       url: 'tracking.php',
       type: 'POST',
-      data: {mail: mail},
+      data: {mail: mail, u: '<?php echo $username ?>', p: '<?php echo $password ?>'},
       dataType: 'json',
       beforeSend: function() {
         layui.use('layer', function(){
@@ -947,7 +948,7 @@ function setupPhoneSuggest(inputId, nameFieldId, addressFieldId, postcodeFieldId
       $.ajax({
       url: 'trackinfo.php',
       type: 'POST',
-      data: {mail: value},
+      data: {mail: value, u: '<?php echo $username ?>', p: '<?php echo $password ?>'},
       dataType: 'json',
       beforeSend: function() {
         layui.use('layer', function(){
@@ -1534,7 +1535,7 @@ function setupPhoneSuggest(inputId, nameFieldId, addressFieldId, postcodeFieldId
         menuRight: function(){
           layer.open({
             type: 1,
-            content: '<div style="padding: 15px;">新一代营业渠道系统 v2.1 <br />1. 将邮资机戳logo改为了“模拟邮政系统”</div>',
+            content: '<div style="padding: 15px;">新一代营业渠道系统 v2.2 <br />1. 更新了api调用</div>',
             area: ['260px', '100%'],
             offset: 'rt',
             anim: 5,
