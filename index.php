@@ -23,6 +23,7 @@ if (isset($_COOKIE["username"])) {
         $enableOS = $user_data['enableOS'];
         $password = $user_data['password'];
         $userimg = $user_data['headimg'] ?? './unkown.webp';
+        if($postadmin) $enableOS = 1;
     } else {
         $userct = $userut = $userrole = $userpost = $postadmin = $enableQPT = $enableOS = "";
     }
@@ -1141,7 +1142,7 @@ function setupPhoneSuggest(inputId, nameFieldId, addressFieldId, postcodeFieldId
             <div class="layui-input-inline">
               <input type="text" name="b" class="layui-input" lay-verify="required">
             </div>
-            <label class="layui-form-labe">元</label>
+            <label class="layui-form-label">元</label>
           </div>
           <div class="layui-form-item">
             <label class="layui-form-label">人员</label>
@@ -1535,7 +1536,7 @@ function setupPhoneSuggest(inputId, nameFieldId, addressFieldId, postcodeFieldId
         menuRight: function(){
           layer.open({
             type: 1,
-            content: '<div style="padding: 15px;">新一代营业渠道系统 v2.2 <br />1. 更新了api调用</div>',
+            content: '<div style="padding: 15px;">新一代营业渠道系统 v2.2 <br />1. Element UI更新</div>',
             area: ['260px', '100%'],
             offset: 'rt',
             anim: 5,
@@ -1613,6 +1614,9 @@ function setupPhoneSuggest(inputId, nameFieldId, addressFieldId, postcodeFieldId
       <ul class="layui-nav layui-nav-tree" lay-filter="test">
           <?php if($postadmin) echo "<li class=\"layui-nav-item\"> <a href=\"javascript:void(0);\" onclick=\"checkLogin('邮政机构管理')\">邮政机构管理</a> </li>"; else echo "<li class=\"layui-nav-item\"> <a href=\"javascript:;\">寄递业务</a> <dl class=\"layui-nav-child\"> <dd><a href=\"javascript:void(0);\" onclick=\"checkLogin('网点收寄')\">网点收寄</a></dd> <dd><a href=\"javascript:void(0);\" onclick=\"checkLogin('寄递运输')\">寄递运输</a></dd> </dl> </li> <li class=\"layui-nav-item\"> <a href=\"javascript:;\">揽投管理</a> <dl class=\"layui-nav-child\"> <dd><a href=\"javascript:void(0);\" onclick=\"checkLogin('投递处理')\">投递处理</a></dd> </dl> </li> <li class=\"layui-nav-item\"> <a href=\"javascript:;\">便捷操作</a> <dl class=\"layui-nav-child\"> <dd><a href=\"javascript:void(0);\" onclick=\"checkLogin('生成条码')\">生成条码</a></dd> <dd><a href=\"javascript:void(0);\" onclick=\"checkLogin('电子日戳')\">电子日戳</a></dd> <dd> <a href=\"javascript:void(0);\" onclick=\"checkLogin('邮资机戳')\">邮资机戳</a></dd> </dl> </li> <li class=\"layui-nav-item\"> <a href=\"javascript:void(0);\" onclick=\"checkLogin('查询物流')\">查询物流</a> </li>"; ?>
           <?php if($userrole=="admin") echo "<li class=\"layui-nav-item\"> <a href=\"./dashboard\">仪表盘</a> </li>" ?>
+          <li class="layui-nav-item">
+              <a href="./element-ui">查看最新Element UI版本</a>
+          </li>
       </ul>
     </div>
   </div>
