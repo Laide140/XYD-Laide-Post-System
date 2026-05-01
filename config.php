@@ -9,9 +9,9 @@ header("X-XSS-Protection: 1; mode=block");
 
 // 数据库配置
 $server_hostname = "localhost";
-$server_username = "数据库用户名";
-$server_password = "数据库密码";
-$server_database = "数据库名称";
+$server_username = "your_username";
+$server_password = "your_password";
+$server_database = "your_dbname";
 
 // 安全密钥
 define('SECURITY_KEY', 'your_secure_random_key_here_change_this');
