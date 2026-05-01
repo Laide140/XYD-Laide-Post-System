@@ -114,12 +114,12 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_username` (`username`),
   KEY `idx_status` (`status`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户表';
 /*!40101 SET character_set_client = @saved_cs_client */;
-
 --
 -- Dumping data for table `users`
---
+INSERT INTO `users` (`username`, `password`, `status`, `role`, `postadmin`, `enableQPT`, `enableOS`, `create_time`, `update_time`)
+VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3', 1, 'admin', 0, 0, 0, NOW(), NOW());
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
